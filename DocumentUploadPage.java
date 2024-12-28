@@ -1,3 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Upload Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="header">Documents Upload</h1>
+
+        <div class="upload-section">
+            <label for="10thReportCard">10th Report Card:</label>
+            <input type="file" id="10thReportCard" class="file-upload">
+        </div>
+
+        <div class="upload-section">
+            <label for="12thReportCard">12th Report Card:</label>
+            <input type="file" id="12thReportCard" class="file-upload">
+        </div>
+
+        <div class="upload-section">
+            <label for="AdmissionOrder">Admission Order:</label>
+            <input type="file" id="AdmissionOrder" class="file-upload">
+        </div>
+
+        <div class="upload-section">
+            <label for="TransferCertificate">Transfer Certificate:</label>
+            <input type="file" id="TransferCertificate" class="file-upload">
+        </div>
+
+        <div class="preview">
+            <h2>Preview</h2>
+            <img id="previewImage" src="" alt="No Preview" class="image-preview">
+            <p id="previewText">No Preview</p>
+        </div>
+
+        <div class="buttons">
+            <button id="backButton" class="btn">Back</button>
+            <button id="nextButton" class="btn">Next</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F9F2EE;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.upload-section {
+    margin: 20px 0;
+}
+
+.upload-section label {
+    font-size: 20px;
+    display: block;
+}
+
+.file-upload {
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.preview {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 10px 0;
+}
+
+.preview p {
+    font-size: 20px;
+    color: #555;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
 package mainPackage;
 
 import javax.swing.*;
