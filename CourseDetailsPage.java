@@ -1,169 +1,199 @@
-package mainPackage;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Course Details</h1>
+        </header>
+        
+        <section class="selection-panel">
+            <div class="form-group">
+                <label for="colleges">Select College:</label>
+                <select id="colleges" class="dropdown">
+                    <option>RV College of Engineering (RVCE)</option>
+                    <option>PES University (PESU)</option>
+                    <option>BMS College of Engineering (BMSCE)</option>
+                    <option>MS Ramaiah Institute of Technology (MSRIT)</option>
+                    <option>Dayananda Sagar College of Engineering (DSCE)</option>
+                    <option>Bangalore Institute of Technology (BIT)</option>
+                    <option>New Horizon College of Engineering (NHCE)</option>
+                    <option>Nitte Meenakshi Institute of Technology (NMIT)</option>
+                    <option>Sir M. Visvesvaraya Institute of Technology (MVIT)</option>
+                    <option>Christ University Faculty of Engineering</option>
+                    <option>Jain University School of Engineering and Technology</option>
+                    <option>CMR Institute of Technology (CMRIT)</option>
+                    <option>Acharya Institute of Technology</option>
+                    <option>RNS Institute of Technology (RNSIT)</option>
+                    <option>East Point College of Engineering and Technology</option>
+                    <option>BNM Institute of Technology (BNMIT)</option>
+                    <option>BMS Institute of Technology and Management</option>
+                    <option>Global Academy of Technology</option>
+                    <option>Reva University</option>
+                    <option>AMC Engineering College</option>
+                    <option>Sapthagiri College of Engineering</option>
+                    <option>Oxford College of Engineering</option>
+                    <option>Sri Venkateshwara College of Engineering (SVCE)</option>
+                    <option>Don Bosco Institute of Technology (DBIT)</option>
+                    <option>Alpha College of Engineering</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="courses">Select Your Program:</label>
+                <div class="courses">
+                    <label><input type="checkbox" name="course" value="Computer Science and Engineering"> Computer Science and Engineering (CSE)</label>
+                    <label><input type="checkbox" name="course" value="Electronics and Communication Engineering"> Electronics and Communication Engineering (ECE)</label>
+                    <label><input type="checkbox" name="course" value="Electrical and Electronics Engineering"> Electrical and Electronics Engineering (EEE)</label>
+                    <label><input type="checkbox" name="course" value="Mechanical Engineering"> Mechanical Engineering (ME)</label>
+                    <label><input type="checkbox" name="course" value="Civil Engineering"> Civil Engineering</label>
+                    <label><input type="checkbox" name="course" value="Information Technology"> Information Technology (IT)</label>
+                    <label><input type="checkbox" name="course" value="Chemical Engineering"> Chemical Engineering</label>
+                    <label><input type="checkbox" name="course" value="Aerospace Engineering"> Aerospace Engineering</label>
+                    <label><input type="checkbox" name="course" value="Automobile Engineering"> Automobile Engineering</label>
+                    <label><input type="checkbox" name="course" value="Biotechnology Engineering"> Biotechnology Engineering</label>
+                    <label><input type="checkbox" name="course" value="Artificial Intelligence and Machine Learning"> Artificial Intelligence and Machine Learning (AI & ML)</label>
+                    <label><input type="checkbox" name="course" value="Data Science and Engineering"> Data Science and Engineering</label>
+                    <label><input type="checkbox" name="course" value="Cyber Security"> Cyber Security</label>
+                    <label><input type="checkbox" name="course" value="Internet of Things"> Internet of Things (IoT)</label>
+                    <label><input type="checkbox" name="course" value="Robotics and Automation"> Robotics and Automation</label>
+                    <label><input type="checkbox" name="course" value="Mechatronics Engineering"> Mechatronics Engineering</label>
+                    <label><input type="checkbox" name="course" value="Biomedical Engineering"> Biomedical Engineering</label>
+                    <label><input type="checkbox" name="course" value="Environmental Engineering"> Environmental Engineering</label>
+                    <label><input type="checkbox" name="course" value="Industrial and Production Engineering"> Industrial and Production Engineering</label>
+                    <label><input type="checkbox" name="course" value="Materials Science and Metallurgical Engineering"> Materials Science and Metallurgical Engineering</label>
+                    <label><input type="checkbox" name="course" value="Energy Engineering"> Energy Engineering</label>
+                    <label><input type="checkbox" name="course" value="Renewable Energy Engineering"> Renewable Energy Engineering</label>
+                    <label><input type="checkbox" name="course" value="Nanotechnology Engineering"> Nanotechnology Engineering</label>
+                    <label><input type="checkbox" name="course" value="Mining Engineering"> Mining Engineering</label>
+                    <label><input type="checkbox" name="course" value="Petroleum Engineering"> Petroleum Engineering</label>
+                    <label><input type="checkbox" name="course" value="Marine Engineering"> Marine Engineering</label>
+                    <label><input type="checkbox" name="course" value="Agricultural Engineering"> Agricultural Engineering</label>
+                    <label><input type="checkbox" name="course" value="Software Engineering"> Software Engineering</label>
+                    <label><input type="checkbox" name="course" value="Big Data Analytics"> Big Data Analytics</label>
+                    <label><input type="checkbox" name="course" value="Embedded Systems Engineering"> Embedded Systems Engineering</label>
+                </div>
+            </div>
+        </section>
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+        <footer>
+            <button id="backButton" class="btn">Back</button>
+            <button id="submitButton" class="btn">Submit</button>
+        </footer>
+    </div>
 
-public class CourseDetailsPage extends JPanel {
-    private HashMap<String, String> studentData;
-    private HashMap<String, String> adminData;
-
-    public CourseDetailsPage(JFrame frame, HashMap<String, String> studentData, HashMap<String, String> adminData) {
-        this.studentData = studentData;
-        this.adminData = adminData;
-
-        // Set background color
-        setBackground(new Color(249, 242, 238));
-        setLayout(new BorderLayout(20, 20));
-
-        // Header
-        JLabel headerLabel = new JLabel("Course Details", JLabel.CENTER);
-        headerLabel.setFont(new Font("SansSerif", Font.BOLD, 36));
-        headerLabel.setForeground(Color.BLACK); // Black title as requested
-        add(headerLabel, BorderLayout.NORTH);
-
-        // Center Panel for Colleges and Courses selection
-        JPanel selectionPanel = new JPanel(new GridLayout(2, 1, 20, 20));
-        selectionPanel.setBackground(new Color(249, 242, 238));
-        selectionPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-
-        // Colleges label and dropdown
-        JLabel collegesLabel = new JLabel("Select College:");
-        collegesLabel.setFont(new Font("SansSerif", Font.PLAIN, 24));
-        collegesLabel.setForeground(Color.BLACK);
-        selectionPanel.add(collegesLabel);
-
-        JComboBox<String> collegesComboBox = new JComboBox<>(new String[]{
-                "RV College of Engineering (RVCE)", "PES University (PESU)",
-                "BMS College of Engineering (BMSCE)", "MS Ramaiah Institute of Technology (MSRIT)",
-                "Dayananda Sagar College of Engineering (DSCE)", "Bangalore Institute of Technology (BIT)",
-                "New Horizon College of Engineering (NHCE)", "Nitte Meenakshi Institute of Technology (NMIT)",
-                "Sir M. Visvesvaraya Institute of Technology (MVIT)", "Christ University Faculty of Engineering",
-                "Jain University School of Engineering and Technology", "CMR Institute of Technology (CMRIT)",
-                "Acharya Institute of Technology", "RNS Institute of Technology (RNSIT)",
-                "East Point College of Engineering and Technology", "BNM Institute of Technology (BNMIT)",
-                "BMS Institute of Technology and Management", "Global Academy of Technology", "Reva University",
-                "AMC Engineering College", "Sapthagiri College of Engineering", "Oxford College of Engineering",
-                "Sri Venkateshwara College of Engineering (SVCE)", "Don Bosco Institute of Technology (DBIT)",
-                "Alpha College of Engineering"
-        });
-        styleComboBox(collegesComboBox);
-        selectionPanel.add(collegesComboBox);
-
-        // Courses label
-        JLabel coursesLabel = new JLabel("Select Your Program:");
-        coursesLabel.setFont(new Font("SansSerif", Font.PLAIN, 24));
-        coursesLabel.setForeground(Color.BLACK);
-        selectionPanel.add(coursesLabel);
-
-        // Programs selection with checkboxes
-        JPanel coursesPanel = new JPanel(new GridLayout(15, 2));
-        coursesPanel.setBackground(new Color(249, 242, 238));
-        JScrollPane scrollPane = new JScrollPane(coursesPanel);
-        scrollPane.setPreferredSize(new Dimension(400, 300));
-
-        String[] courses = {
-                "Computer Science and Engineering (CSE)", "Electronics and Communication Engineering (ECE)",
-                "Electrical and Electronics Engineering (EEE)", "Mechanical Engineering (ME)", "Civil Engineering",
-                "Information Technology (IT)", "Chemical Engineering", "Aerospace Engineering", "Automobile Engineering",
-                "Biotechnology Engineering", "Artificial Intelligence and Machine Learning (AI & ML)", "Data Science and Engineering",
-                "Cyber Security", "Internet of Things (IoT)", "Robotics and Automation", "Mechatronics Engineering",
-                "Biomedical Engineering", "Environmental Engineering", "Industrial and Production Engineering",
-                "Materials Science and Metallurgical Engineering", "Energy Engineering", "Renewable Energy Engineering",
-                "Nanotechnology Engineering", "Mining Engineering", "Petroleum Engineering", "Marine Engineering",
-                "Agricultural Engineering", "Software Engineering", "Big Data Analytics", "Embedded Systems Engineering"
-        };
-
-        List<JCheckBox> courseCheckBoxes = new ArrayList<>();
-        for (String course : courses) {
-            JCheckBox checkBox = new JCheckBox(course);
-            checkBox.setBackground(new Color(249, 242, 238));
-            checkBox.setFont(new Font("SansSerif", Font.PLAIN, 16));
-            courseCheckBoxes.add(checkBox);
-            coursesPanel.add(checkBox);
-        }
-
-        selectionPanel.add(scrollPane);
-        add(selectionPanel, BorderLayout.CENTER);
-
-        // Footer with buttons
-        JPanel footerPanel = new JPanel();
-        footerPanel.setBackground(new Color(249, 242, 238));
-
-        JButton backButton = new JButton("Back");
-        styleButton(backButton);
-        backButton.addActionListener(e -> {
-            frame.setContentPane(new DocumentUploadPage(frame, studentData, adminData));
-            frame.revalidate();
-        });
-
-        JButton submitButton = new JButton("Submit");
-        styleButton(submitButton);
-        submitButton.addActionListener(e -> {
-            String selectedCollege = (String) collegesComboBox.getSelectedItem();
-            List<String> selectedCourses = new ArrayList<>();
-            for (JCheckBox checkBox : courseCheckBoxes) {
-                if (checkBox.isSelected()) {
-                    selectedCourses.add(checkBox.getText());
-                }
-            }
-
-            if (selectedCollege == null || selectedCollege.isEmpty()) {
-                JOptionPane.showMessageDialog(frame, "Please select a college.", "Error", JOptionPane.ERROR_MESSAGE);
-            } else if (selectedCourses.isEmpty()) {
-                JOptionPane.showMessageDialog(frame, "Please select at least one program.", "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                studentData.put("SelectedCollege", selectedCollege);
-                studentData.put("SelectedPrograms", String.join(", ", selectedCourses));
-
-                // Navigate to ApplicationStatusPage
-                frame.setContentPane(new ApplicationStatusPage(frame, studentData, adminData));
-                frame.revalidate();
-            }
-        });
-
-        footerPanel.add(backButton);
-        footerPanel.add(submitButton);
-        add(footerPanel, BorderLayout.SOUTH);
-    }
-
-    // Utility method to style combo boxes
-    private void styleComboBox(JComboBox<String> comboBox) {
-        comboBox.setFont(new Font("SansSerif", Font.PLAIN, 16)); // Smaller font size
-        comboBox.setPreferredSize(new Dimension(300, 25)); // Increased length and decreased width
-        comboBox.setBackground(Color.WHITE);
-        comboBox.setForeground(Color.BLACK);
-
-        comboBox.setToolTipText("Click to select an option"); // Tooltip for interactivity
-        comboBox.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    }
-
-    // Utility method to style buttons
-    private void styleButton(JButton button) {
-        button.setFont(new Font("SansSerif", Font.BOLD, 20));
-        button.setBackground(new Color(94, 129, 172));
-        button.setForeground(Color.WHITE);
-        button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-        // Add hover effect
-        button.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                button.setBackground(new Color(129, 161, 193));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                button.setBackground(new Color(94, 129, 172));
-            }
-        });
-    }
+    <script src="script.js"></script>
+</body>
+</html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f2ee;
+    color: #000;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+}
+
+.selection-panel {
+    background-color: #f9f2ee;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 24px;
+    font-weight: normal;
+    color: #000;
+}
+
+select, .dropdown {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.courses {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.courses label {
+    display: block;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #5e81ac;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #81a1c1;
+}
+
+.btn:active {
+    background-color: #4c6d8d;
+}
+document.getElementById("submitButton").addEventListener("click", function() {
+    const college = document.getElementById("colleges").value;
+    const courses = Array.from(document.querySelectorAll("input[name='course']:checked")).map(cb => cb.value);
+
+    if (!college) {
+        alert("Please select a college.");
+    } else if (courses.length === 0) {
+        alert("Please select at least one program.");
+    } else {
+        alert("College: " + college + "\nSelected Courses: " + courses.join(", "));
+        // Here, you can send this data to the server or navigate to the next page
+    }
+});
+
+document.getElementById("backButton").addEventListener("click", function() {
+    window.history.back();  // This simulates the back button action
+});
