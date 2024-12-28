@@ -303,3 +303,29 @@ public class DocumentUploadPage extends JPanel {
         }
     }
 }
+document.querySelectorAll('.file-upload').forEach(input => {
+    input.addEventListener('change', handleFileUpload);
+});
+
+function handleFileUpload(event) {
+    const input = event.target;
+    const file = input.files[0];
+    const previewImage = document.getElementById('previewImage');
+    const previewText = document.getElementById('previewText');
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            if (file.type.startsWith('image/')) {
+                previewImage.src = e.target.result;
+                previewText.style.display = 'none';
+            } else {
+                previewImage.style.display = 'none';
+                previewText.textContent = 'Preview not available';
+            }
+        };
+
+        reader.readAsDataURL(file);
+    }
+}
