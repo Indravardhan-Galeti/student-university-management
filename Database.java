@@ -1,3 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Application Status</h1>
+        </header>
+
+        <!-- Student Information Section -->
+        <section class="student-details">
+            <table>
+                <tr><th>Name</th><td id="name"></td></tr>
+                <tr><th>Contact Number</th><td id="contact-number"></td></tr>
+                <tr><th>Email</th><td id="email"></td></tr>
+                <tr><th>Date of Birth (Day)</th><td id="dob-day"></td></tr>
+                <tr><th>Date of Birth (Month)</th><td id="dob-month"></td></tr>
+                <tr><th>Date of Birth (Year)</th><td id="dob-year"></td></tr>
+                <tr><th>Gender</th><td id="gender"></td></tr>
+                <tr><th>Photo</th><td id="photo"></td></tr>
+                <tr><th>10th Report Card</th><td id="10th-report"></td></tr>
+                <tr><th>12th Report Card</th><td id="12th-report"></td></tr>
+                <tr><th>Admission Order</th><td id="admission-order"></td></tr>
+                <tr><th>Transfer Certificate</th><td id="transfer-cert"></td></tr>
+                <tr><th>Selected College</th><td id="selected-college"></td></tr>
+                <tr><th>Selected Programs</th><td id="selected-programs"></td></tr>
+            </table>
+        </section>
+
+        <!-- Confirmation Message and Button Section -->
+        <section class="confirmation">
+            <p>Your application has been successfully submitted.</p>
+            <button id="close-button" class="btn">Close</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #222;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #222;
+}
+
+.student-details {
+    margin-bottom: 40px;
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4682b4;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+.confirmation {
+    text-align: center;
+}
+
+.confirmation p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #228b22; /* Green color for confirmation */
+}
+
+.btn {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #4682b4; /* Steel blue */
+    color: white;
+    padding: 10px 20px;
+   
 package mainPackage;
 
 import java.sql.*;
